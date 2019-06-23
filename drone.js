@@ -1,8 +1,5 @@
 const dgram = require('dgram');
 const wait = require('waait');
-// const app = require('express')();
-// const http = require('http').Server(app);
-// const io = require('socket.io')(http);
 const throttle = require('lodash/throttle');
 // const commandDelays = require('./commandDelays');
 
