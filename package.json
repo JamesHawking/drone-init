@@ -4,7 +4,7 @@
   "description": "",
   "main": "fly.js",
   "scripts": {
-    "start": "nodemon fly.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
