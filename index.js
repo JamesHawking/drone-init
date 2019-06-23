@@ -6,11 +6,9 @@ app.get('/', function(req, res) {
   res.send('Hello');
 });
 
-io.on('connection', function(socket) {
-  console.log('a user connected');
-  socket.on('alert', () => {
-    socket.emit('alertFromAzure');
-  });
+io.on('alert', function(socket) {
+  console.log('alert');
+  io.emit('alertFromAzure');
 });
 
 http.listen(process.env.PORT, function() {
