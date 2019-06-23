@@ -1,6 +1,9 @@
 const dgram = require('dgram');
 const wait = require('waait');
 const throttle = require('lodash/throttle');
+const tellosocket = require('socket.io-client')(
+  'https://tellosocket.azurewebsites.net/'
+);
 // const commandDelays = require('./commandDelays');
 
 const PORT = 8889;
@@ -16,6 +19,16 @@ function handleError(err) {
     console.log(err);
   }
 }
+
+socket.on('event', function(data) {
+  console.log('test');
+  console.log(data);
+});
+
+socket.on('alertFromAzure', function(data) {
+  console.log('alertFromAzure');
+  console.log(data);
+});
 
 drone.send('command', 0, 'command'.length, PORT, HOST, handleError);
 drone.send('battery?', 0, 'battery?'.length, PORT, HOST, handleError);
