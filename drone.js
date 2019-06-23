@@ -1,6 +1,6 @@
 const dgram = require('dgram');
 const tellosocket = require('socket.io-client')(
-  'https://tellosocket.azurewebsites.net/alertFromAzure'
+  'https://tellosocket.azurewebsites.net/'
 );
 // const commandDelays = require('./commandDelays');
 
@@ -17,6 +17,10 @@ function handleError(err) {
     console.log(err);
   }
 }
+
+tellosocket.on('connect', function() {
+  console.log('socket connected');
+});
 
 tellosocket.on('event', function(data) {
   console.log('test');
