@@ -1,6 +1,4 @@
 const dgram = require('dgram');
-const wait = require('waait');
-const throttle = require('lodash/throttle');
 const tellosocket = require('socket.io-client')(
   'https://tellosocket.azurewebsites.net/'
 );
@@ -20,12 +18,12 @@ function handleError(err) {
   }
 }
 
-socket.on('event', function(data) {
+tellosocket.on('event', function(data) {
   console.log('test');
   console.log(data);
 });
 
-socket.on('alertFromAzure', function(data) {
+tellosocket.on('alertFromAzure', function(data) {
   console.log('alertFromAzure');
   console.log(data);
 });
