@@ -1,6 +1,6 @@
 const dgram = require('dgram');
 const tellosocket = require('socket.io-client')(
-  'https://tellosocket.azurewebsites.net/'
+  'https://tellosocket.azurewebsites.net/alertFromAzure'
 );
 // const commandDelays = require('./commandDelays');
 

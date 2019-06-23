@@ -1,14 +1,17 @@
 const app = require('express')();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+var ioAlertFromAzure = io.of('/alertFromAzure');
 
 app.get('/', function(req, res) {
-  res.send('Hello');
+  res.send('Hello Azure');
 });
 
-io.on('alert', function(socket) {
-  console.log('alert');
-  io.emit('alertFromAzure');
+io.on('connection', function(socket) {
+  socket.on('alert', function(data) {
+    console.log('A client sent us this dumb message:', data.message);
+    ioAlertFromAzure.emit('alert');
+  });
 });
 
 http.listen(process.env.PORT, function() {
