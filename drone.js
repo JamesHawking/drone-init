@@ -22,6 +22,11 @@ tellosocket.on('connect', function() {
   console.log('socket connected');
 });
 
+tellosocket.on('alert', function(data) {
+  console.log('alert');
+  console.log(data);
+});
+
 tellosocket.on('event', function(data) {
   console.log('test');
   console.log(data);

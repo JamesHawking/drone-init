@@ -10,7 +10,7 @@ app.get('/', function(req, res) {
 io.on('connection', function(socket) {
   socket.on('alert', function(data) {
     console.log('A client sent us this dumb message:', data.message);
-    socket.emit('alertFromAzure');
+    socket.emit('alertFromAzure', {});
   });
 });
 
