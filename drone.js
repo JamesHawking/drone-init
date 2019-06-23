@@ -37,6 +37,10 @@ tellosocket.on('alertFromAzure', function(data) {
   console.log(data);
 });
 
+tellosocket.on('message', function(message) {
+  console.log(message);
+});
+
 drone.send('command', 0, 'command'.length, PORT, HOST, handleError);
 drone.send('battery?', 0, 'battery?'.length, PORT, HOST, handleError);
 
